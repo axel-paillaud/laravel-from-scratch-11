@@ -7,6 +7,11 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <h1>This is contact page</h1>
+    <nav>
+        <x-nav-link link="/">Home</x-nav-link>
+        <x-nav-link link="/contact">Contact</x-nav-link>
+        <x-nav-link link="/about">About</x-nav-link>
+    </nav>
+        {{ $slot }}
     </body>
 </html>
