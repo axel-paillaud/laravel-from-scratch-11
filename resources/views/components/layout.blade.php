@@ -8,9 +8,9 @@
     </head>
     <body>
     <nav>
-        <x-nav-link link="/">Home</x-nav-link>
-        <x-nav-link link="/contact">Contact</x-nav-link>
-        <x-nav-link link="/about">About</x-nav-link>
+        <x-nav-link href="/">Home</x-nav-link>
+        <x-nav-link href="/contact">Contact</x-nav-link>
+        <x-nav-link href="/about">About</x-nav-link>
     </nav>
         {{ $slot }}
     </body>
