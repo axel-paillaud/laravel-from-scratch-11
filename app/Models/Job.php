@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Arr;
+
 class Job {
-    public static function all(): array {
+    public static function all(): array
+    {
         return [
             [
                 'id' => 1,
@@ -22,5 +25,10 @@ class Job {
             ],
         ];
 
+    }
+
+    public static function find(int $id)
+    {
+        return Arr::first(static::all(), fn($job) => $job['id'] == $id);
     }
 }
