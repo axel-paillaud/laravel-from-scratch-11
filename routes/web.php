@@ -5,7 +5,7 @@ use App\Models\Job;
 
 Route::get('/', function () {
     return view('home', [
-        'greetings' => 'Hello',
+        'greetings' => 'World',
     ]);
 });
 

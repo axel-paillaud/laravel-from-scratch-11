@@ -22,6 +22,9 @@
                     Home
                   </x-nav-link>
                   <x-nav-link href="/about" :active="request()->is('about')" type="button">
+                    Jobs
+                  </x-nav-link>
+                  <x-nav-link href="/about" :active="request()->is('about')" type="button">
                     About
                   </x-nav-link>
                   <x-nav-link href="/contact" :active="request()->is('contact')" type="button">
