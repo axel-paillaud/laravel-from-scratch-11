@@ -18,16 +18,16 @@
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
-                  <x-nav-link href="/" :active="request()->is('/')" type="a">
+                  <x-nav-link href="/" :active="request()->is('/')" >
                     Home
                   </x-nav-link>
-                  <x-nav-link href="/about" :active="request()->is('about')" type="button">
+                  <x-nav-link href="/jobs" :active="request()->is('jobs')" >
                     Jobs
                   </x-nav-link>
-                  <x-nav-link href="/about" :active="request()->is('about')" type="button">
+                  <x-nav-link href="/about" :active="request()->is('about')" >
                     About
                   </x-nav-link>
-                  <x-nav-link href="/contact" :active="request()->is('contact')" type="button">
+                  <x-nav-link href="/contact" :active="request()->is('contact')" >
                     Contact
                   </x-nav-link>
                 </div>
