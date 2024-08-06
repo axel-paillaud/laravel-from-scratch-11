@@ -3,36 +3,32 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
-Route::get('/', function () {
-    return view('home', [
-        'greetings' => 'World',
+Route::get("/", function () {
+    return view("home", [
+        "greetings" => "World",
     ]);
 });
 
-
-Route::get('/about', function () {
-    return view('about');
+Route::get("/about", function () {
+    return view("about");
 });
 
-Route::get('/jobs', function() {
-    $jobs = Job::with('employer')->get();
+Route::get("/jobs", function () {
+    $jobs = Job::with("employer")->paginate();
 
-    return view('jobs', [
-        'jobs' => $jobs,
+    return view("jobs", [
+        "jobs" => $jobs,
     ]);
 });
 
-Route::get('/job/{id}', function($id) {
-
+Route::get("/job/{id}", function ($id) {
     $job = Job::find($id);
 
-    return view('job', [
-        'job' => $job,
+    return view("job", [
+        "job" => $job,
     ]);
 });
 
-
-Route::get('/contact', function () {
-    return view('contact');
+Route::get("/contact", function () {
+    return view("contact");
 });
-
