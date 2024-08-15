@@ -2,9 +2,12 @@
   "languages": {
     "PHP": {
       "language_servers": ["intelephense", "!phpactor"]
+    },
+    "HTML": {
+      "tab_size": 2
     }
   },
   "file_types": {
-    "Blade": ["*.blade.php"]
+    "HTML": ["*.blade.php"]
   }
 }
