@@ -14,6 +14,7 @@ Route::get("/about", function () {
     return view("about");
 });
 
+// Index
 Route::get("/jobs", function () {
     $jobs = Job::with("employer")->latest()->cursorPaginate(3);
 
@@ -22,10 +23,12 @@ Route::get("/jobs", function () {
     ]);
 });
 
+// Create
 Route::get("/jobs/create", function () {
     return view("jobs.create");
 });
 
+// Show
 Route::get("/job/{id}", function ($id) {
     $job = Job::find($id);
 
@@ -34,6 +37,7 @@ Route::get("/job/{id}", function ($id) {
     ]);
 });
 
+// Store
 Route::post("/jobs", function () {
     request()->validate([
         "title" => ["required", "min:3"],
@@ -47,6 +51,15 @@ Route::post("/jobs", function () {
     ]);
 
     return redirect("/jobs");
+});
+
+// Edit
+Route::get("/jobs/{id}/edit", function ($id) {
+    $job = Job::find($id);
+
+    return view("jobs.edit", [
+        "job" => $job,
+    ]);
 });
 
 Route::get("/contact", function () {
