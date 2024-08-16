@@ -85,7 +85,7 @@ Route::patch("/jobs/{id}", function ($id) {
         "salary" => request("salary"),
     ]);
 
-    return redirect("/jobs" . $job->id);
+    return redirect("/jobs/" . $job->id);
 });
 
 // Destroy
