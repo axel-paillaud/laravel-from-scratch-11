@@ -29,7 +29,7 @@ Route::get("/jobs/create", function () {
 });
 
 // Show
-Route::get("/job/{id}", function ($id) {
+Route::get("/jobs/{id}", function ($id) {
     $job = Job::find($id);
 
     return view("jobs.show", [
