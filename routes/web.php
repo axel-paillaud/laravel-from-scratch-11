@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use App\Http\Controllers\JobController;
 use Illuminate\Http\Client\Request;
 
 Route::get("/", function () {
@@ -15,13 +16,14 @@ Route::get("/about", function () {
 });
 
 // Index
-Route::get("/jobs", function () {
+Route::get('jobs', [JobController::class, 'index']);
+/* Route::get("/jobs", function () {
     $jobs = Job::with("employer")->latest()->cursorPaginate(3);
 
     return view("jobs.index", [
         "jobs" => $jobs,
     ]);
-});
+}); */
 
 // Create
 Route::get("/jobs/create", function () {
