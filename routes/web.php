@@ -29,8 +29,9 @@ Route::get("/jobs/create", function () {
 });
 
 // Show
-Route::get("/jobs/{id}", function ($id) {
-    $job = Job::find($id);
+Route::get("/jobs/{job}", function (Job $job) {
+    // Without Route Model Binding :
+    // $job = Job::find($id);
 
     return view("jobs.show", [
         "job" => $job,
@@ -54,8 +55,8 @@ Route::post("/jobs", function () {
 });
 
 // Edit
-Route::get("/jobs/{id}/edit", function ($id) {
-    $job = Job::find($id);
+Route::get("/jobs/{job}/edit", function (Job $job) {
+    // $job = Job::find($id);
 
     return view("jobs.edit", [
         "job" => $job,
@@ -63,16 +64,17 @@ Route::get("/jobs/{id}/edit", function ($id) {
 });
 
 // Update
-Route::patch("/jobs/{id}", function ($id) {
+Route::patch("/jobs/{job}", function (Job $job) {
+    // authorize (On hold ...)
+    //
     request()->validate([
         "title" => ["required", "min:3"],
         "salary" => ["required"],
     ]);
 
-    // authorize (On hold ...)
 
     // findOrFail, instead of find, to handle inexisting id
-    $job = Job::findOrFail($id);
+    // $job = Job::findOrFail($id);
 
     // One way to do it
     // $job->title = request("title");
@@ -89,10 +91,11 @@ Route::patch("/jobs/{id}", function ($id) {
 });
 
 // Destroy
-Route::delete("/jobs/{id}", function ($id) {
+Route::delete("/jobs/{job}", function (Job $job) {
     // authorize (On hold ...)
 
-    Job::findOrFail($id)->delete();
+    // Job::findOrFail($id)->delete();
+    $job->delete();
 
     return redirect("/jobs");
 });
